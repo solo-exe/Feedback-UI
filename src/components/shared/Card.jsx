@@ -9,9 +9,11 @@ function Card({ children, reverse }) {
         backgroundColor: reverse ? 'rgba(0, 0, 0, 0.4)' : '#fff',
         color: reverse ? '#fff' : '#000',
     }
-    return <div className="card" style={style}>
-        {children}
-    </div>
+    return (
+        <div className="card" style={style}>
+            {children}
+        </div>
+    )
 
 }
 
