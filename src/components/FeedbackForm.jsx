@@ -23,6 +23,8 @@ function FeedbackForm({ handleAdd }) {
             setBtnDisabled(false)
         }
         setText(e.target.value)
+        // work on pasting text
+        // e.clipboardData ? setText(e.clipboardData.getData('text')) : setText(e.target.value)
     }
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -38,7 +40,7 @@ function FeedbackForm({ handleAdd }) {
                 <h2>How would you rate your service with us</h2>
                 <RatingSelect select={(rating) => setRating(rating)} />
                 <div className="input-group">
-                    <input onChange={handleTextChange} type="text" placeholder='Write a review' value={text} />
+                    <input onChange={handleTextChange} onPaste={handleTextChange} type="text" placeholder='Write a review' value={text} />
                     <Button type="submit" isDisbaled={btnDisabled}>Send</Button>
                 </div>
             </form>

@@ -90,4 +90,8 @@ function RatingSelect({ select }) {
     )
 }
 
+RatingSelect.propTypes = {
+    select: PropTypes.func.isRequired
+}
+
 export default RatingSelect
