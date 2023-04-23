@@ -1,16 +1,21 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 
 import Card from './shared/Card'
 import Button from './shared/Button'
 import RatingSelect from './RatingSelect'
+import FeedbackContext from '../context/FeedbackContext'
 
-function FeedbackForm({ handleAdd }) {
+function FeedbackForm() {
+
+    const { addFeedback } = useContext(FeedbackContext)
+
     const [text, setText] = useState('')
     const [btnDisabled, setBtnDisabled] = useState(true)
     const [message, setMessage] = useState('')
     const [rating, setRating] = useState(10)
+
     const handleTextChange = (e) => {
         if (text === '') {
             setBtnDisabled(true)
@@ -26,14 +31,16 @@ function FeedbackForm({ handleAdd }) {
         // work on pasting text
         // e.clipboardData ? setText(e.clipboardData.getData('text')) : setText(e.target.value)
     }
+
     const handleSubmit = (e) => {
         e.preventDefault()
         if (text.trim().length > 10) {
             const newFeedback = { text, rating }
-            handleAdd(newFeedback)
+            addFeedback(newFeedback)
             setText('');
         }
     }
+
     return (
         <Card reverse={false}>
             <form onSubmit={handleSubmit}>

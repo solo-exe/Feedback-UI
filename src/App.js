@@ -1,55 +1,58 @@
-import { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-
+// import { NavLink } from 'react-router-dom'
+// import Card from './components/shared/Card'
 import Header from './components/Header'
 import FeedbackList from './components/FeedbackList'
 import FeedbackStats from './components/FeedbackStats'
-import FeedBackData from './data/FeedbackData'
+// import FeedBackData from './data/FeedbackData'
 import FeedbackForm from './components/FeedbackForm'
 import AboutPage from './components/pages/AboutPage'
 import AboutIconLink from './components/AboutIconLink'
-
-import { v4 as uuidv4 } from 'uuid'
+import { FeedbackProvider } from './context/FeedbackContext'
+import Post from './components/pages/Post'
 
 function App() {
-    const [feedback, setFeedback] = useState(FeedBackData)
+    // const [feedback, setFeedback] = useState(FeedBackData)
 
-    const addFeedback = (newFeedback) => {
-        newFeedback.id = uuidv4()
-        setFeedback([newFeedback, ...feedback])
-    }
+    // const addFeedback = (newFeedback) => {
+    //     newFeedback.id = uuidv4()
+    //     setFeedback([newFeedback, ...feedback])
+    // }
 
-    const deleteFeedback = (id) => {
-        if (window.confirm('Are you sure you want to delete ?')) {
-            setFeedback(feedback.filter((item) => (item.id !== id)))
-        }
-    }
     return (
-        <>
-            {/* //props can be passed in component instances as html properties. Numbers, and boolean are passed in curly braces */}
+        <FeedbackProvider>
+            {/* //props can be passed in component instances as html properties. Numbers, boolean, other components are passed in curly braces */}
             <Router>
-                <Header />
                 <div className="container">
+                    <Header />
                     <Routes>
+
                         <Route exact path='/' element={
                             <>
-                                <FeedbackForm handleAdd={addFeedback} />
-                                <FeedbackStats feedback={feedback} />
-                                <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
-                                <AboutIconLink />
+                                <FeedbackForm />
+                                <FeedbackStats />
+                                <FeedbackList />
                             </>
-                        }>
-                        </Route>
-                        <Route path='/about' element={<AboutPage />}>
-                            This is the About Page
-                        </Route>
+                        } />
+
+                        <Route exact path='/about' element={<AboutPage />} />
+
+                        <Route path='/post/*' element={<Post />} />
 
                     </Routes>
+                    <AboutIconLink />
                 </div>
-
+                {/* <Card>
+                    <NavLink to='/' activeClassName='active'>
+                        Home
+                    </NavLink>
+                    <NavLink to='/about' activeClassName='active'>
+                        About
+                    </NavLink>
+                </Card> */}
             </Router>
 
-        </>
+        </FeedbackProvider>
     )
 }
 

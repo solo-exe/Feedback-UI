@@ -6,6 +6,12 @@
     padding: 0;
 }
 
+/* .active {
+    background: #000;
+    margin: 0;
+    padding: 0
+} */
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #202142;
