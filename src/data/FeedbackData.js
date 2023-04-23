@@ -15,12 +15,12 @@ const FeedBackData = [
         text: 'This is feedback number 3'
     },
     {
-        id: 3,
+        id: 4,
         rating: 4,
         text: 'This is feedback number 4'
     },
     {
-        id: 3,
+        id: 5,
         rating: 1,
         text: 'This is feedback number 5'
     },

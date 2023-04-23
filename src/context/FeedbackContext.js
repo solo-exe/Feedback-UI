@@ -9,10 +9,7 @@ const FeedbackContext = createContext()
 export const FeedbackProvider = ({ children }) => {
     const [feedback, setFeedback] = useState(FeedbackData)
 
-    const [feedbackEdit, setFeedbackEdit] = useState({
-        item: {},
-        edit: false
-    })
+    const [feedbackEdit, setFeedbackEdit] = useState({ item: {}, edit: false })
 
     // Delete Feedback
     const deleteFeedback = (id) => {
@@ -32,13 +29,21 @@ export const FeedbackProvider = ({ children }) => {
         setFeedbackEdit({ item, edit: true })
     }
 
+    // Update feedback item
+    const updateFeedback = (id, updItem) => {
+
+        // A way to update an upject you've not seen before, that is adding key-data items to already existing keys removes the old key
+        setFeedback(feedback.map((item) => ((item.id === id) ? { ...item, ...updItem } : item)))
+    }
+
     return (
         <FeedbackContext.Provider value={{
             feedback,
+            feedbackEdit,
             deleteFeedback,
             addFeedback,
-            feedbackEdit,
-            editFeedback
+            editFeedback,
+            updateFeedback
         }}>
             {children}
         </FeedbackContext.Provider>

@@ -7,7 +7,6 @@ function Post(props) {
     const navigate = useNavigate()
 
     const onClick = () => {
-        console.log('HELLO');
         navigate('/about')
     }
 

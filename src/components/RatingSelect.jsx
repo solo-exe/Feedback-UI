@@ -1,31 +1,20 @@
-import React from 'react'
+import { useContext, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
+import FeedbackContext from '../context/FeedbackContext'
 
 function RatingSelect({ select }) {
-    const [selected, setSelected] = React.useState(5)
+    const [selected, setSelected] = useState(5)
+
+    const { feedbackEdit } = useContext(FeedbackContext)
 
     const handleChange = (e) => {
         setSelected(+e.currentTarget.value)
         select(+e.currentTarget.value)
     }
 
-    // return (<div>
-    //     <ul className="rating">
-    //         for (i = 0; i < 10; i++) {
-    //             <li>
-    //                 <input
-    //                     type='radio'
-    //                     id={`num${i + 1}`}
-    //                     name='rating'
-    //                     value={`${i + 1}`}
-    //                     onChange={handleChange}
-    //                     checked={selected === +`${i + 1}`}
-    //                 />
-    //                 <label htmlFor={`num${i + 1}`}>{`${i + 1}`}</label>
-    //             </li>
-    //         }
-    //     </ul>
-    // </div>)
+    useEffect(() => {
+        setSelected(feedbackEdit.item.rating)
+    }, [feedbackEdit])
 
     return (
         <div>
@@ -88,6 +77,23 @@ function RatingSelect({ select }) {
             </ul>
         </div>
     )
+    // return (<div>
+    //     <ul className="rating">
+    //         for (i = 0; i < 10; i++) {
+    //             <li>
+    //                 <input
+    //                     type='radio'
+    //                     id={`num${i + 1}`}
+    //                     name='rating'
+    //                     value={`${i + 1}`}
+    //                     onChange={handleChange}
+    //                     checked={selected === +`${i + 1}`}
+    //                 />
+    //                 <label htmlFor={`num${i + 1}`}>{`${i + 1}`}</label>
+    //             </li>
+    //         }
+    //     </ul>
+    // </div>)
 }
 
 RatingSelect.propTypes = {

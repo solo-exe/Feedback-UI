@@ -12,12 +12,6 @@ import { FeedbackProvider } from './context/FeedbackContext'
 import Post from './components/pages/Post'
 
 function App() {
-    // const [feedback, setFeedback] = useState(FeedBackData)
-
-    // const addFeedback = (newFeedback) => {
-    //     newFeedback.id = uuidv4()
-    //     setFeedback([newFeedback, ...feedback])
-    // }
 
     return (
         <FeedbackProvider>
@@ -51,7 +45,6 @@ function App() {
                     </NavLink>
                 </Card> */}
             </Router>
-
         </FeedbackProvider>
     )
 }
