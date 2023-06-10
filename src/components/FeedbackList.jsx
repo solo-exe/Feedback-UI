@@ -11,7 +11,7 @@ function FeedbackList() {
         return (<p>No Feedback Yet</p>)
     }
 
-    return isLoading ? <Spinner /> : (
+    const list = (
         <div className='feedback-list'>
             <AnimatePresence>
                 {feedback.map((item) => (
@@ -31,10 +31,12 @@ function FeedbackList() {
                     </motion.div>
                 ))}
             </AnimatePresence>
-        </div>)
+        </div>
+    )
 
-    // Component Without anumate presence
+    return isLoading ? <Spinner /> : list
 
+    // Component Without animate presence
     // return (
     //     <div className='feedback-list'>
     //         {feedback.map((item) => (

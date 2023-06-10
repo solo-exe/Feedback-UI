@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import React from 'react'
 // import { NavLink } from 'react-router-dom'
 // import Card from './components/shared/Card'
 import Header from './components/Header'
@@ -12,6 +13,17 @@ import { FeedbackProvider } from './context/FeedbackContext'
 import Post from './components/pages/Post'
 
 function App() {
+
+    // HOW TO BUILD COMPONENTS WITHOUT JSX
+    // return React.createElement(
+    //     'div',
+    //     { className: 'container, message' },
+    //     React.createElement(
+    //         'h1',
+    //         { className: 'container, message' },
+    //         'My App'
+    //     )
+    // )
 
     return (
         <FeedbackProvider>

@@ -43,7 +43,7 @@ function FeedbackForm() {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault() // this prevents default behaviour of submitting to the actual file
         if (text.trim().length > 10) {
             const newFeedback = { text, rating }
             if (feedbackEdit.edit === true) {
@@ -52,18 +52,19 @@ function FeedbackForm() {
                 addFeedback(newFeedback)
             }
             setText('');
+            setBtnDisabled(true)
         }
     }
 
+    //onPaste={handleTextChange}
     return (
         <Card reverse={false}>
             <form onSubmit={handleSubmit}>
                 <h2>How would you rate your service with us</h2>
                 <RatingSelect select={(rating) => setRating(rating)} />
                 <div className="input-group">
-                    <input onChange={handleTextChange} //onPaste={handleTextChange} 
-                        type="text" placeholder='Write a review' value={text} />
-                    <Button type="submit" isDisbaled={btnDisabled}>Send</Button>
+                    <input onChange={handleTextChange} type="text" placeholder='Write a review' value={text} />
+                    <Button type="submit" isDisabled={btnDisabled}>Send</Button>
                 </div>
             </form>
             {message && <div className='message'>{message}</div>}

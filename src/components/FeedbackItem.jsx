@@ -9,7 +9,7 @@ function FeedbackItem({ item }) {
     const { deleteFeedback, editFeedback } = useContext(FeedbackContext)
 
     return (
-        <Card >
+        <Card reverse={true}>
             <div className="num-display">{item.rating}</div>
             <button onClick={() => deleteFeedback(item.id)} className="close">
                 <FaTimes color="purple" />
