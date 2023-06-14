@@ -11,6 +11,7 @@ import AboutPage from './components/pages/AboutPage'
 import AboutIconLink from './components/AboutIconLink'
 import { FeedbackProvider } from './context/FeedbackContext'
 import Post from './components/pages/Post'
+import About from './pages/About'
 
 function App() {
 
@@ -25,9 +26,20 @@ function App() {
     //     )
     // )
 
+    //props can be passed in component instances as html properties. Numbers, boolean, other components are passed in curly braces 
+
+    // NavLinks Can hold a certain active class for specific pages
+    //  <Card>
+    //      <NavLink to='/' activeClassName='active'>
+    //          Home
+    //      </NavLink>
+    //       <NavLink to='/about' activeClassName='active'>
+    //           About             
+    //       </NavLink>
+    //   </Card> 
+
     return (
         <FeedbackProvider>
-            {/* //props can be passed in component instances as html properties. Numbers, boolean, other components are passed in curly braces */}
             <Router>
                 <div className="container">
                     <Header />
@@ -41,24 +53,37 @@ function App() {
                             </>
                         } />
 
+                        {/* Component={About}   a prop yuo can add to the Route element to specify the page the route goes to, this is an old method.*/}
                         <Route exact path='/about' element={<AboutPage />} />
 
-                        <Route path='/post/*' element={<Post />} />
+                        {/* Pass Params as shown below */}
+                        {/* <Route exact path='/post/:id/:leg_id' element={<Post />} /> */}
+
+                        {/* Pass Parent to nested route as shown below Using the asterisk Sign '*' */}
+                        <Route exact path='/post/*' element={<Post />} />
 
                     </Routes>
+
+                    {/* NavLinks Can hold active classes for specific pages */}
+                    {/* <Card>
+                        <div className='space'>
+                            <NavLink to='/' activeClassName='active'>
+                                Home
+                            </NavLink>
+                            <NavLink to='/about' activeClassName='active'>
+                                About
+                            </NavLink>
+                        </div>
+                    </Card > */}
+
                     <AboutIconLink />
                 </div>
-                {/* <Card>
-                    <NavLink to='/' activeClassName='active'>
-                        Home
-                    </NavLink>
-                    <NavLink to='/about' activeClassName='active'>
-                        About
-                    </NavLink>
-                </Card> */}
             </Router>
+            <About />
         </FeedbackProvider>
     )
 }
+
+
 
 export default App

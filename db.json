@@ -13,84 +13,19 @@
   ],
   "feedback": [
     {
-      "id": 1,
-      "rating": 3,
-      "text": "This is feedback item 1 coming from the backend"
+      "text": "A meaningful review",
+      "rating": 7,
+      "id": 1
     },
     {
-      "id": 2,
-      "rating": 3,
-      "text": "This is feedback item 2 coming from the backend"
+      "text": "Another meaningful review",
+      "rating": 7,
+      "id": 2
     },
     {
-      "id": 3,
-      "rating": 2,
-      "text": "This is feedback item 3 coming from the backend"
-    },
-    {
-      "id": 4,
-      "rating": 5,
-      "text": "This is feedback item 4 coming from the backend"
-    },
-    {
-      "text": "Filling up the state and stuff",
-      "rating": 4,
-      "id": 5
-    },
-    {
-      "text": "This is feedback item 6 from the backend",
-      "rating": 5,
-      "id": 6
-    },
-    {
-      "text": "kkkkkkkkkkkkkk",
-      "rating": 5,
-      "id": 7
-    },
-    {
-      "text": "mmmmmmmmmmmmm",
-      "rating": 5,
-      "id": 8
-    },
-    {
-      "text": "mmmmmmmmmmmmmmmmmm",
-      "rating": 5,
-      "id": 9
-    },
-    {
-      "text": "mmmmmmmmmmmmmmmmm",
-      "rating": 5,
-      "id": 10
-    },
-    {
-      "text": "mmmmmmmmmmmmmmmmmmmmm",
-      "rating": 5,
-      "id": 11
-    },
-    {
-      "text": "kkkkkkkkkkkkkkkkkkkkk",
-      "rating": 5,
-      "id": 12
-    },
-    {
-      "text": "kkkkkkkkkkkkkkkkkkkkkkkk",
-      "rating": 9,
-      "id": 13
-    },
-    {
-      "text": "kminooooooooooooooooo",
-      "rating": 10,
-      "id": 14
-    },
-    {
-      "text": "njjjjjjjjjjjjjjjjjjjjjjjj",
-      "rating": 5,
-      "id": 15
-    },
-    {
-      "text": "mmmmmmmmmmmmmmmmmmmmmm",
-      "rating": 3,
-      "id": 16
+      "text": "A not so meaningful review",
+      "rating": 7,
+      "id": 3
     }
   ]
 }
